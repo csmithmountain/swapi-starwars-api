@@ -10,6 +10,7 @@ import Species from "./components/Species";
 import Starships from "./components/Starships";
 import Vehicles from "./components/Vehicles";
 
+
 function App() {
   const [people, setPeople] = useState([]);
   const [films, setFilms] = useState([]);
@@ -27,12 +28,12 @@ function App() {
       setLoading(false);
     }
 
-    async function fetchFilms() {
-      let res = await fetch("https://swapi.dev/api/films");
-      let data = await res.json();
-      setFilms(data.results);
-      setLoading(false);
-    }
+    // async function fetchFilms() {
+    //   let res = await fetch("https://swapi.dev/api/films");
+    //   let data = await res.json();
+    //   setFilms(data.results);
+    //   setLoading(false);
+    // }
 
     async function fetchStarships() {
       let res = await fetch("https://swapi.dev/api/starships");
@@ -62,8 +63,8 @@ function App() {
       setLoading(false);
     }
 
-    fetchPeople();
-    fetchFilms();
+    // fetchPeople();
+    // fetchFilms();
     fetchStarships();
     fetchVehicles();
     fetchSpecies();
@@ -82,8 +83,9 @@ function App() {
           ) : (
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/films" element={<Films data={films} />} />
-              <Route path="/people" element={<People data={people} />} />
+              {/* <Route path="/films" element={<Films data={films} />} /> */}
+              <Route path="/films" element={<Films />} />
+              <Route path="/people" element={<People />} />
               <Route path="/planets" element={<Planets data={planets} />} />
               <Route path="/species" element={<Species data={species} />} />
               <Route

@@ -38,15 +38,26 @@ export default function Species() {
           </Dimmer>
         ) : (
           <Container>
-            <h1>Species</h1>
-            <Grid columns={3}>
+            <h1
+              style={{
+                color: "white",
+              }}
+            >
+              Species
+            </h1>
+            <Grid
+              columns={3}
+              style={{
+                width: "100%",
+              }}
+            >
               {data.results?.map((species, i) => {
                 return (
                   <Grid.Column key={i}>
                     <Card
                       style={{
-                        width: "300px",
                         height: "100%",
+                        width: "100%",
                       }}
                     >
                       <Card.Content>
@@ -73,11 +84,13 @@ export default function Species() {
                 );
               })}
             </Grid>
-            <Container                style={{display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                
-              }}>
+            <Container
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <Button
                 content="Back"
                 icon="left arrow"

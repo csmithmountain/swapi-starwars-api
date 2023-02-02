@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Card, Grid } from "semantic-ui-react";
 import { Container, Dimmer, Loader } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
-import "../App.css";
 
 export default function People() {
   const [data, setData] = useState([]);
@@ -40,15 +39,26 @@ export default function People() {
           </Dimmer>
         ) : (
           <Container>
-            <h1>People</h1>
-            <Grid columns={3}>
+            <h1
+              style={{
+                color: "white",
+              }}
+            >
+              People
+            </h1>
+            <Grid
+              columns={3}
+              style={{
+                width: "100%",
+              }}
+            >
               {data.results?.map((people, i) => {
                 return (
                   <Grid.Column key={i}>
                     <Card
                       style={{
-                        width: "300px",
                         height: "100%",
+                        width: "100%",
                       }}
                     >
                       <Card.Content>
@@ -68,11 +78,12 @@ export default function People() {
               })}
             </Grid>
             <Container
-            style={{display: "flex",
-                           justifyContent: "center",
-                           alignItems: "center",
-                         
-                       }}>
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <Button
                 content="Back"
                 icon="left arrow"

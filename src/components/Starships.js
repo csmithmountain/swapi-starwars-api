@@ -38,15 +38,26 @@ export default function Starships() {
           </Dimmer>
         ) : (
           <Container>
-            <h1>Starships</h1>
-            <Grid columns={3}>
+            <h1
+              style={{
+                color: "white",
+              }}
+            >
+              Starships
+            </h1>
+            <Grid
+              columns={3}
+              style={{
+                width: "100%",
+              }}
+            >
               {data.results?.map((starships, i) => {
                 return (
                   <Grid.Column key={i}>
                     <Card
                       style={{
-                        width: "300px",
                         height: "100%",
+                        width: "100%",
                       }}
                     >
                       <Card.Content>
@@ -83,11 +94,13 @@ export default function Starships() {
                 );
               })}
             </Grid>
-            <Container                style={{display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                
-              }}>
+            <Container
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <Button
                 content="Back"
                 icon="left arrow"

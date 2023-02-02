@@ -38,16 +38,27 @@ export default function Films() {
           </Dimmer>
         ) : (
           <Container>
-            <h1>Films</h1>
+            <h1
+              style={{
+                color: "white",
+              }}
+            >
+              Films
+            </h1>
 
-            <Grid columns={3}>
+            <Grid
+              columns={3}
+              style={{
+                width: "100%",
+              }}
+            >
               {data.results?.map((films, i) => {
                 return (
                   <Grid.Column key={i}>
                     <Card
                       style={{
-                        width: "300px",
                         height: "100%",
+                        width: "100%",
                       }}
                     >
                       <Card.Content>
@@ -71,11 +82,12 @@ export default function Films() {
               })}
             </Grid>
             <Container
-                           style={{display: "flex",
-                           justifyContent: "center",
-                           alignItems: "center",
-                         
-                       }}>
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <Button
                 content="Back"
                 icon="left arrow"

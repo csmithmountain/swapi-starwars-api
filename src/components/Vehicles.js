@@ -38,15 +38,26 @@ export default function Vehicles() {
           </Dimmer>
         ) : (
           <Container>
-            <h1>Vehicles</h1>
-            <Grid columns={3}>
+            <h1
+              style={{
+                color: "white",
+              }}
+            >
+              Vehicles
+            </h1>
+            <Grid
+              columns={3}
+              style={{
+                width: "100%",
+              }}
+            >
               {data.results?.map((vehicles, i) => {
                 return (
                   <Grid.Column key={i}>
                     <Card
                       style={{
-                        width: "300px",
                         height: "100%",
+                        width: "100%",
                       }}
                     >
                       <Card.Content>

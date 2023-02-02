@@ -70,26 +70,18 @@ export default function People() {
               })}
             </Grid>
             <Container>
-              {loading ? (
-                <Dimmer active inverted>
-                  <Loader inverted>Loading...</Loader>
-                </Dimmer>
-              ) : (
-                <Container>
-                  <Button
-                    content="Back"
-                    icon="left arrow"
-                    labelPosition="left"
-                    onClick={handlePrev}
-                  />
-                  <Button
-                    content="Next"
-                    icon="right arrow"
-                    labelPosition="right"
-                    onClick={handleNext}
-                  />
-                </Container>
-              )}
+              <Button
+                content="Back"
+                icon="left arrow"
+                labelPosition="left"
+                onClick={handlePrev}
+              />
+              <Button
+                content="Next"
+                icon="right arrow"
+                labelPosition="right"
+                onClick={handleNext}
+              />
             </Container>
           </Container>
         )}

@@ -18,18 +18,14 @@ export default function Species() {
   }, []);
 
   function handleNext() {
-    // console.log(data.next);
     if (data.next === null) {
-      console.log("Error!!!!!");
     } else {
       fetchData(data.next);
     }
   }
   function handlePrev() {
     if (data.previous === null) {
-      console.log("Error!!!!");
     } else {
-      // console.log(data.previous);
       fetchData(data.previous);
     }
   }
@@ -43,11 +39,16 @@ export default function Species() {
         ) : (
           <Container>
             <h1>Species</h1>
-            <Grid columns={11}>
+            <Grid columns={3}>
               {data.results?.map((species, i) => {
                 return (
                   <Grid.Column key={i}>
-                    <Card>
+                    <Card
+                      style={{
+                        width: "300px",
+                        height: "100%",
+                      }}
+                    >
                       <Card.Content>
                         <Card.Header>{species.name}</Card.Header>
                         <Card.Description>
@@ -65,12 +66,6 @@ export default function Species() {
                           <p>{species.eye_color}</p>
                           <strong>Average lifespan</strong>
                           <p>{species.average_lifespan}</p>
-                          <strong>Homeworld</strong>
-                          <p>{species.homeworld}</p>
-                          <strong>Language</strong>
-                          <p>{species.language}</p>
-                          <strong>People</strong>
-                          <p>{species.people}</p>
                         </Card.Description>
                       </Card.Content>
                     </Card>
@@ -78,12 +73,20 @@ export default function Species() {
                 );
               })}
             </Grid>
-            <Container>
+            <Container                style={{display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                
+              }}>
               <Button
                 content="Back"
                 icon="left arrow"
                 labelPosition="left"
                 onClick={handlePrev}
+                style={{
+                  marginTop: "2rem",
+                  marginBottom: "2em",
+                }}
               />
               <Button
                 content="Next"

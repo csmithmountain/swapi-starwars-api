@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Grid } from "semantic-ui-react";
 import { Container, Dimmer, Loader } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
+import "../App.css";
 
 export default function People() {
   const [data, setData] = useState([]);
@@ -18,18 +19,14 @@ export default function People() {
   }, []);
 
   function handleNext() {
-    // console.log(data.next);
     if (data.next === null) {
-      console.log("Error!!!!!");
     } else {
       fetchData(data.next);
     }
   }
   function handlePrev() {
     if (data.previous === null) {
-      console.log("Error!!!!");
     } else {
-      // console.log(data.previous);
       fetchData(data.previous);
     }
   }
@@ -44,11 +41,16 @@ export default function People() {
         ) : (
           <Container>
             <h1>People</h1>
-            <Grid columns={5}>
+            <Grid columns={3}>
               {data.results?.map((people, i) => {
                 return (
                   <Grid.Column key={i}>
-                    <Card>
+                    <Card
+                      style={{
+                        width: "300px",
+                        height: "100%",
+                      }}
+                    >
                       <Card.Content>
                         <Card.Header>{people.name}</Card.Header>
                         <Card.Description>
@@ -58,10 +60,6 @@ export default function People() {
                           <p>{people.height}</p>
                           <strong>Gender</strong>
                           <p>{people.gender}</p>
-                          <strong>Homeworld</strong>
-                          <p>{people.homeworld}</p>
-                          <strong>Films</strong>
-                          <a href="/films ">{people.films}</a>
                         </Card.Description>
                       </Card.Content>
                     </Card>
@@ -69,12 +67,21 @@ export default function People() {
                 );
               })}
             </Grid>
-            <Container>
+            <Container
+            style={{display: "flex",
+                           justifyContent: "center",
+                           alignItems: "center",
+                         
+                       }}>
               <Button
                 content="Back"
                 icon="left arrow"
                 labelPosition="left"
                 onClick={handlePrev}
+                style={{
+                  marginTop: "2rem",
+                  marginBottom: "2em",
+                }}
               />
               <Button
                 content="Next"

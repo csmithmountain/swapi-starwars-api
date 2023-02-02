@@ -18,18 +18,14 @@ export default function Vehicles() {
   }, []);
 
   function handleNext() {
-    // console.log(data.next);
     if (data.next === null) {
-      console.log("Error!!!!!");
     } else {
       fetchData(data.next);
     }
   }
   function handlePrev() {
     if (data.previous === null) {
-      return <Button>Nothing</Button>;
     } else {
-      // console.log(data.previous);
       fetchData(data.previous);
     }
   }
@@ -43,11 +39,16 @@ export default function Vehicles() {
         ) : (
           <Container>
             <h1>Vehicles</h1>
-            <Grid columns={13}>
+            <Grid columns={3}>
               {data.results?.map((vehicles, i) => {
                 return (
                   <Grid.Column key={i}>
-                    <Card>
+                    <Card
+                      style={{
+                        width: "300px",
+                        height: "100%",
+                      }}
+                    >
                       <Card.Content>
                         <Card.Header>{vehicles.name}</Card.Header>
                         <Card.Description>
@@ -71,10 +72,6 @@ export default function Vehicles() {
                           <p>{vehicles.consumables}</p>
                           <strong>Starships class</strong>
                           <p>{vehicles.vehicle_class}</p>
-                          <strong>Pilots</strong>
-                          <p>{vehicles.pilots}</p>
-                          <strong>Films</strong>
-                          <p>{vehicles.films}</p>
                         </Card.Description>
                       </Card.Content>
                     </Card>
@@ -82,12 +79,22 @@ export default function Vehicles() {
                 );
               })}
             </Grid>
-            <Container>
+            <Container
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <Button
                 content="Back"
                 icon="left arrow"
                 labelPosition="left"
                 onClick={handlePrev}
+                style={{
+                  marginTop: "2rem",
+                  marginBottom: "2em",
+                }}
               />
               <Button
                 content="Next"

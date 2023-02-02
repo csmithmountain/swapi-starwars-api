@@ -18,18 +18,14 @@ export default function Starships() {
   }, []);
 
   function handleNext() {
-    // console.log(data.next);
     if (data.next === null) {
-      console.log("Error!!!!!");
     } else {
       fetchData(data.next);
     }
   }
   function handlePrev() {
     if (data.previous === null) {
-      console.log("Error!!!!");
     } else {
-      // console.log(data.previous);
       fetchData(data.previous);
     }
   }
@@ -43,11 +39,16 @@ export default function Starships() {
         ) : (
           <Container>
             <h1>Starships</h1>
-            <Grid columns={15}>
+            <Grid columns={3}>
               {data.results?.map((starships, i) => {
                 return (
                   <Grid.Column key={i}>
-                    <Card>
+                    <Card
+                      style={{
+                        width: "300px",
+                        height: "100%",
+                      }}
+                    >
                       <Card.Content>
                         <Card.Header>{starships.name}</Card.Header>
                         <Card.Description>
@@ -75,10 +76,6 @@ export default function Starships() {
                           <p>{starships.MGLT}</p>
                           <strong>Starships class</strong>
                           <p>{starships.starships_class}</p>
-                          <strong>Pilots</strong>
-                          <p>{starships.pilots}</p>
-                          <strong>Films</strong>
-                          <p>{starships.films}</p>
                         </Card.Description>
                       </Card.Content>
                     </Card>
@@ -86,12 +83,20 @@ export default function Starships() {
                 );
               })}
             </Grid>
-            <Container>
+            <Container                style={{display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                
+              }}>
               <Button
                 content="Back"
                 icon="left arrow"
                 labelPosition="left"
                 onClick={handlePrev}
+                style={{
+                  marginTop: "2rem",
+                  marginBottom: "2em",
+                }}
               />
               <Button
                 content="Next"

@@ -18,22 +18,17 @@ export default function Films() {
   }, []);
 
   function handleNext() {
-    // console.log(data.next);
     if (data.next === null) {
-      console.log("Error!!!!!");
     } else {
       fetchData(data.next);
     }
   }
   function handlePrev() {
     if (data.previous === null) {
-      console.log("Error!!!!");
     } else {
-      // console.log(data.previous);
       fetchData(data.previous);
     }
-  }//vi kan avmarkera allt då det inte finns sidor eller lägga in funktionen
-
+  }
   return (
     <>
       <Container>
@@ -45,11 +40,16 @@ export default function Films() {
           <Container>
             <h1>Films</h1>
 
-            <Grid columns={6}>
+            <Grid columns={3}>
               {data.results?.map((films, i) => {
                 return (
                   <Grid.Column key={i}>
-                    <Card>
+                    <Card
+                      style={{
+                        width: "300px",
+                        height: "100%",
+                      }}
+                    >
                       <Card.Content>
                         <Card.Header>{films.title}</Card.Header>
                         <Card.Description>
@@ -70,12 +70,21 @@ export default function Films() {
                 );
               })}
             </Grid>
-            <Container>
+            <Container
+                           style={{display: "flex",
+                           justifyContent: "center",
+                           alignItems: "center",
+                         
+                       }}>
               <Button
                 content="Back"
                 icon="left arrow"
                 labelPosition="left"
                 onClick={handlePrev}
+                style={{
+                  marginTop: "2rem",
+                  marginBottom: "2em",
+                }}
               />
               <Button
                 content="Next"

@@ -16,20 +16,16 @@ export default function Planets() {
   useEffect(() => {
     fetchData("https://swapi.dev/api/planets");
   }, []);
-  
+
   function handleNext() {
-    // console.log(data.next);
     if (data.next === null) {
-      console.log("Error!!!!!");
     } else {
       fetchData(data.next);
     }
   }
   function handlePrev() {
     if (data.previous === null) {
-      console.log("Error!!!!");
     } else {
-      // console.log(data.previous);
       fetchData(data.previous);
     }
   }
@@ -43,11 +39,16 @@ export default function Planets() {
         ) : (
           <Container>
             <h1>Planets</h1>
-            <Grid columns={11}>
+            <Grid columns={3}>
               {data.results?.map((planets, i) => {
                 return (
                   <Grid.Column key={i}>
-                    <Card>
+                    <Card
+                      style={{
+                        width: "300px",
+                        height: "100%",
+                      }}
+                    >
                       <Card.Content>
                         <Card.Header>{planets.name}</Card.Header>
                         <Card.Description>
@@ -69,8 +70,6 @@ export default function Planets() {
                           <p>{planets.surface_water}</p>
                           <strong>Population</strong>
                           <p>{planets.population}</p>
-                          <strong>Residents</strong>
-                          <p>{planets.residents}</p>
                         </Card.Description>
                       </Card.Content>
                     </Card>
@@ -78,12 +77,22 @@ export default function Planets() {
                 );
               })}
             </Grid>
-            <Container>
+            <Container
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <Button
                 content="Back"
                 icon="left arrow"
                 labelPosition="left"
                 onClick={handlePrev}
+                style={{
+                  marginTop: "2rem",
+                  marginBottom: "2em",
+                }}
               />
               <Button
                 content="Next"

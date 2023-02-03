@@ -20,3 +20,14 @@ html {
   position: sticky;
   top: 0;
 }
+
+.item {
+  font-size: 18px;
+  font-family: "Orbitron", sans-serif;
+}
+
+.starwars {
+  color: yellow;
+  font-size: 18px;
+  font-family: "Orbitron", sans-serif;
+}

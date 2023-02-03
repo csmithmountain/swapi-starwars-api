@@ -8,7 +8,7 @@ export default function Navbar() {
       className="navBar"
       style={{
         border: "none",
-        borderBottom: "1px yellow solid",
+        borderBottom: "3px yellow solid",
       }}
     >
       <Container
@@ -19,7 +19,7 @@ export default function Navbar() {
       >
         <div class="ui seven item inverted menu">
           <a href="/" class="item">
-            Star Wars API
+            Home
           </a>
           <a href="/films" class="item">
             Films

@@ -1,12 +1,46 @@
 import React from "react";
 import { Menu, Container } from "semantic-ui-react";
-import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <Menu inverted>
-      <Container>
-        <Link to="/">
+    <Menu
+      fixed="top"
+      className="navBar"
+      style={{
+        border: "none",
+        borderBottom: "3px yellow solid",
+      }}
+    >
+      <Container
+        style={{
+          justifyContent: "space-evenly",
+          width: "100%",
+        }}
+      >
+        <div class="ui seven item inverted menu">
+          <a href="/" class="item">
+            Home
+          </a>
+          <a href="/films" class="item">
+            Films
+          </a>
+          <a href="/people" class="item">
+            People
+          </a>
+          <a href="/planets" class="item">
+            Planets
+          </a>
+          <a href="/species" class="item">
+            Species
+          </a>
+          <a href="/starships" class="item">
+            Starships
+          </a>
+          <a href="/vehicles" class="item">
+            Vehicles
+          </a>
+        </div>
+        {/* <Link to="/">
           <Menu.Item name="Star Wars API"></Menu.Item>
         </Link>
         <Link to="/films">
@@ -26,7 +60,7 @@ export default function Navbar() {
         </Link>
         <Link to="/vehicles">
           <Menu.Item name="Vehicles"></Menu.Item>
-        </Link>
+        </Link> */}
       </Container>
     </Menu>
   );

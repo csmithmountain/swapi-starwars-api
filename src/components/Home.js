@@ -2,8 +2,14 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div>
-      <h1>SWAPI</h1>
+    <div style={{
+      color: "white",
+    }}>
+      <h1
+        
+      >
+        SWAPI
+      </h1>
       <h2>The Star Wars API</h2>
       <p>
         All the Star Wars data you've ever wanted: Planets, Spaceships,
